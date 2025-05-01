@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+
 
 import {
   createBrowserRouter,
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('https://coffee-store-server-mocha-eight.vercel.app/coffees'),
+        loader: () => fetch('https://coffee-store-server-with-auth-blush.vercel.app/coffees'),
         Component: Home
       },
       {
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'updateCoffee/:id',
-        loader: ({ params }) => fetch(`https://coffee-store-server-mocha-eight.vercel.app/coffees/${params.id}`),
+        loader: ({ params }) => fetch(`https://coffee-store-server-with-auth-blush.vercel.app/coffees/${params.id}`),
         Component: UpdateCoffee
       },
       {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'users',
-        loader: () => fetch('https://coffee-store-server-mocha-eight.vercel.app/users'),
+        loader: () => fetch('https://coffee-store-server-with-auth-blush.vercel.app/users'),
         Component: Users
       }
     ]

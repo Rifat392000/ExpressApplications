@@ -13,7 +13,7 @@ const UpdateCoffee = () => {
         console.log(updatedCoffee);
 
         // send updated coffee to the db
-        fetch(`https://coffee-store-server-mocha-eight.vercel.app/coffees/${_id}`, {
+        fetch(`https://coffee-store-server-with-auth-blush.vercel.app/coffees/${_id}`, {
             method: 'PUT', 
             headers: {
                 'content-type': 'application/json'

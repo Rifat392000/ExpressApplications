@@ -11,7 +11,7 @@ const AddCoffee = () => {
         console.log(newCoffee);
 
         // send coffee data to the db
-        fetch('https://coffee-store-server-mocha-eight.vercel.app/coffees', {
+        fetch('https://coffee-store-server-with-auth-blush.vercel.app/coffees', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

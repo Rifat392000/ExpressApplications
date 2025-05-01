@@ -20,7 +20,7 @@ const SignIn = () => {
                     lastSignInTime: result.user?.metadata?.lastSignInTime
                 }
                 // update last sign in to the database
-                fetch('https://coffee-store-server-mocha-eight.vercel.app/users', {
+                fetch('https://coffee-store-server-with-auth-blush.vercel.app/users', {
                     method: 'PATCH', 
                     headers: {
                         'content-type': 'application/json'

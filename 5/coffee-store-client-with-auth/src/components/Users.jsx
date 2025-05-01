@@ -18,7 +18,7 @@ const Users = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://coffee-store-server-mocha-eight.vercel.app/users/${id}`, {
+                fetch(`https://coffee-store-server-with-auth-blush.vercel.app/users/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

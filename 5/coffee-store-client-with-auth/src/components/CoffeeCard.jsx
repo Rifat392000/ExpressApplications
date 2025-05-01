@@ -21,7 +21,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
             if (result.isConfirmed) {
 
                 // start deleting the coffee
-                fetch(`https://coffee-store-server-mocha-eight.vercel.app/coffees/${_id}`, {
+                fetch(`https://coffee-store-server-with-auth-blush.vercel.app/coffees/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
