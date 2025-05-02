@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
-    const { createUser } = use(AuthContext);
+    const { createUser , logOut} = use(AuthContext);
     console.log(createUser)
 
     const handleSignUp = e => {
@@ -27,7 +27,7 @@ const SignUp = () => {
                     creationTime: result.user?.metadata?.creationTime,
                     lastSignInTime: result.user?.metadata?.lastSignInTime
                 }
-
+                logOut();
                 // save profile info in the db
                 fetch('https://coffee-store-server-with-auth-blush.vercel.app/users', {
                     method: 'POST',

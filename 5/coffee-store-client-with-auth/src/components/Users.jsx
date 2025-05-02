@@ -58,6 +58,8 @@ const Users = () => {
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Email</th>
+                            <th>creationTime</th>
+                            <th>lastSignInTime</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -80,6 +82,7 @@ const Users = () => {
                                         <div>
                                             <div className="font-bold">{user.name}</div>
                                             <div className="text-sm opacity-50">{user.address}</div>
+                                            
                                         </div>
                                     </div>
                                 </td>
@@ -87,11 +90,14 @@ const Users = () => {
                                     {user.phone}
                                 </td>
                                 <td>{user.email}</td>
-                                <th>
+                                <td><div className="text-sm opacity-50">{user.creationTime}</div>
+                                </td>
+                                <td><div className="text-sm opacity-50">{user.lastSignInTime}</div></td>
+                                <td>
                                     <button className="btn btn-xs">V</button>
                                     <button className="btn btn-xs">E</button>
                                     <button onClick={() => handleDelete(user._id)} className="btn btn-xs">X</button>
-                                </th>
+                                </td>
                             </tr>)
                         }
                     </tbody>
