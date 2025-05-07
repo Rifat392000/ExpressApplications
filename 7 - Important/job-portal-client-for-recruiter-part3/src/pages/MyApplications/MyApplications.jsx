@@ -6,7 +6,7 @@ const MyApplications = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/job-application?email=${user.email}`)
+        fetch(`https://job-server-plum.vercel.app/job-application?email=${user.email}`)
             .then(res => res.json())
             .then(data => setJobs(data))
     }, [user.email])
@@ -20,14 +20,10 @@ const MyApplications = () => {
                     <thead>
                         <tr>
                             <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
                             </th>
                             <th>Name</th>
                             <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -49,17 +45,13 @@ const MyApplications = () => {
                                             </div>
                                         </div>
                                         <div>
+                                            <div className="font-bold">{job.company}</div>
                                             <div className="font-bold">{job.title}</div>
                                             <div className="text-sm opacity-50">{job.location}</div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    Zemlak, Daniel and Leannon
-                                    <br />
-                                    <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                                </td>
-                                <td>Purple</td>
+                                
                                 <th>
                                     <button className="btn btn-ghost btn-xs">X</button>
                                 </th>

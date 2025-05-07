@@ -1,12 +1,11 @@
 import Lottie from 'lottie-react';
-import React, { useContext } from 'react';
 import loginLottieJSON from '../../assets/lottie/login.json'
-import AuthContext from '../../context/AuthContext/AuthContext';
 import SocialLogin from '../shared/SocialLogin';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const SignIn = () => {
-    const { singInUser } = useContext(AuthContext);
+    const { singInUser } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     console.log('in signIn page', location)
@@ -58,7 +57,7 @@ const SignIn = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
-                    <SocialLogin></SocialLogin>
+                    <SocialLogin from={from}></SocialLogin>
                 </div>
             </div>
         </div>
