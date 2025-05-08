@@ -129,15 +129,15 @@ npm run build
 Go to [https://app.netlify.com/drop](https://app.netlify.com/drop)
 
 - Drop your Dist Folder
-  <img src="https://i.ibb.co.com/qjbVKGQ/Screenshot-4.jpg" />
+  <img src="./img/1.jpg" />
 
 ### Deployment Steps-4 : change Site-Name According to Your Website
 
-<img src="https://i.ibb.co.com/k06s5hM/image.png">
+<img src="./img/2.png">
 
 ### Deployment Steps-4 : Add Domain on Firebase for Auth Authorization
 
-<img src="https://i.ibb.co.com/RbCYpL0/image.png">
+<img src="./img/3.png">
 
 ## YAHOO 😎 Deployment Done
 
