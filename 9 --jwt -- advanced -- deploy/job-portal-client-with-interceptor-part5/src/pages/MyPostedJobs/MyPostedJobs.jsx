@@ -7,7 +7,7 @@ const MyPostedJobs = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`https://job-portal-server-for-recruiter-part3.vercel.app/jobs?email=${user.email}`)
+        fetch(`${import.meta.env.VITE_urlLink}/jobs?email=${user.email}`)
             .then(res => res.json())
             .then(data => setJobs(data))
     }, [user.email])

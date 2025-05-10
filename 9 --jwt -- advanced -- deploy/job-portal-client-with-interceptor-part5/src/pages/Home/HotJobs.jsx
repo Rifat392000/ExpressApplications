@@ -5,7 +5,7 @@ const HotJobs = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        fetch('https://job-portal-server-for-recruiter-part3.vercel.app/jobs')
+        fetch(`${import.meta.env.VITE_urlLink}/jobs`)
             .then(res => res.json())
             .then(data => {
                 setJobs(data);

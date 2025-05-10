@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser?.email) {
                 const user = { email: currentUser.email };
 
-                axios.post('https://job-portal-server-for-recruiter-part3.vercel.app/jwt', user, { withCredentials: true })
+                axios.post(`${import.meta.env.VITE_urlLink}/jwt`, user, { withCredentials: true })
                     .then(res => {
                         console.log('login token', res.data);
                         setLoading(false);
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
 
             }
             else {
-                axios.post('https://job-portal-server-for-recruiter-part3.vercel.app/logout', {}, {
+                axios.post(`${import.meta.env.VITE_urlLink}/logout`, {}, {
                     withCredentials: true
                 })
                 .then(res => {

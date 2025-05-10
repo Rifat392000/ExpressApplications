@@ -10,7 +10,7 @@ const ViewApplications = () => {
         const data = {
             status: e.target.value
         }
-        fetch(`https://job-portal-server-for-recruiter-part3.vercel.app/job-applications/${id}`, {
+        fetch(`${import.meta.env.VITE_urlLink}/job-applications/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
