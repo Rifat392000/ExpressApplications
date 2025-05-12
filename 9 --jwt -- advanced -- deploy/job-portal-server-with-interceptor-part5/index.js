@@ -1,5 +1,6 @@
 // Step 1: Basic Server Setup & Middleware
 const express = require('express');
+const helmet = require('helmet');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
@@ -9,7 +10,13 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+// Security headers
+app.use(helmet());
+
+
 // Middleware: CORS
+// The split() method of String values takes a pattern and divides this string into an ordered list of substrings by searching for the pattern, 
+// puts these substrings into an array, and returns the array.
 const allowedOrigins = process.env.CORS_ORIGINS?.split(',') || [];
 
 app.use(cors({
@@ -97,6 +104,9 @@ async function run() {
         app.get('/jobs/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) };
+            // MongoDB stores its default _id field as an ObjectId, not a string. So if you're querying or updating a document
+            // by _id, and your id is a string (like "663fbc13417b6c8df00c0ae3"), you must convert it to an ObjectId type, or 
+            // the query won't match anything.
             const result = await jobsCollection.findOne(query);
             res.send(result);
         });

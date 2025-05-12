@@ -192,7 +192,7 @@ function setCookies(res, accessToken, refreshToken) {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'strict',
-    maxAge: 15 * 60 * 1000, // 15 minutes
+    maxAge: 15 * 60 * 1000, // 15 minutes  // In the context of web browser cookies, the maxAge attribute specifies the duration, in seconds, that a cookie will remain active before it expires and is deleted. A positive value indicates the number of seconds after which the cookie should be removed, while a zero or negative value causes the cookie to be deleted immediately. 
   });
 
   // Set refresh token cookie
@@ -211,6 +211,13 @@ router.post('/login', (req, res) => {
   if (!username || !password) {
     return res.status(400).json({ message: 'Username and password are required' });
   }
+
+
+// Mock user database - in a real app, use a proper database
+// const users = [
+//   { id: 1, username: 'admin', password: '1234', role: 'admin', isActive: true },
+//   { id: 2, username: 'user', password: 'password', role: 'user', isActive: true }
+// ];
 
   const user = users.find(u => u.username === username && u.password === password);
   
