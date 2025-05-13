@@ -8,6 +8,7 @@ import Product from '../Product/Product';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [count, setCount] = useState(0);
+    const [loading, setLoading] = useState(true); // 🔹 loading state
 
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -24,12 +25,15 @@ const Shop = () => {
 
     // Fetch paginated products
     useEffect(() => {
+        setLoading(true); // 🔹 Start loading
         fetch(`http://localhost:5000/products?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
-            .then(data => setProducts(data));
+            .then(data => {
+                setProducts(data);
+                setLoading(false); // 🔹 End loading
+            });
     }, [currentPage, itemsPerPage]);
 
-    // Pagination handlers
     const handleItemsPerPage = (e) => {
         const val = parseInt(e.target.value);
         setItemsPerPage(val);
@@ -49,16 +53,20 @@ const Shop = () => {
             {/* Product List */}
             <div className="products-container">
                 {
-                    products.map(product => (
-                        <Product
-                            key={product._id}
-                            product={product}
-                        />
-                    ))
+                    loading ? (
+                        <p className="loading">Loading products...</p> // 🔹 Loading UI
+                    ) : (
+                        products.map(product => (
+                            <Product
+                                key={product._id}
+                                product={product}
+                            />
+                        ))
+                    )
                 }
             </div>
 
-            {/* Cart Section (UI only, no logic) */}
+            {/* Cart Section */}
             <div className="cart-container">
                 <Cart cart={[]} handleClearCart={() => {}}>
                     <Link className='proceed-link' to="/orders">
@@ -78,7 +86,7 @@ const Shop = () => {
                             className={currentPage === page ? 'selected' : ''}
                             onClick={() => setCurrentPage(page)}
                         >
-                            {page+1}
+                            {page + 1}
                         </button>
                     ))
                 }
