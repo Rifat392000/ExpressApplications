@@ -36,3 +36,22 @@
 .pagination .selected {
     background-color: orange;
 }
+
+
+.items-select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.items-select:hover {
+    border-color: #ff9900;
+}
+
+.items-select:focus {
+    border-color: #ff9900;
+    box-shadow: 0 0 4px rgba(255, 153, 0, 0.6);
+}
