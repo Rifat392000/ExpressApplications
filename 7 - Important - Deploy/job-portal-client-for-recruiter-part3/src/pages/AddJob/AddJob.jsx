@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
+
 const AddJob = () => {
     const navigate = useNavigate();
     const { user } = useAuth();
